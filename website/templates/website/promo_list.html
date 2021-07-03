@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load website_extras %}
+
+{% block title %}
+<title>Promoções</title>
+{% endblock %}
+
+
+
+{% block navbar %}
+    <li><a class="nav-link active" href="{% url 'post_list' %}">Home</a></li>
+{% endblock %}
+
+{% block artigos %}
+<br>
+	<div id="allproducts" class="family-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-box">
+						<h2>Todas as Promoções</h2>
+					</div>
+				</div>
+                <div class="col-lg-2">
+					<div class="title-box">
+                        <p><strong>{{ promo.count | numberitems:page_obj.number }} </strong> de <strong>{{ paginator.count }}</strong> itens </p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				{% for post in promo %}
+					<div class="col-lg-3 col-md-6 col-sm-12">
+						<div class="single-team-member">
+							<div class="family-img">
+								{% if post.imagem_post %}
+									<a href="{% url 'post_detail' post.id %}"><img src="{{ post.imagem_post.url }}" class="img-responsive " width="100%" alt=""></a>
+								{% else %}
+									<a href="{% url 'post_detail' post.id %}"><img src="{% static 'images/logotulespintas.jpg' %}" class="img-responsive " width="100%" alt=""></a>
+								{% endif %}
+							</div>
+							<div class="family-info">
+								{% if post.promocao > 0 %}
+									<h4>Preço: <del>{{ post.price }} €</del></h4>
+									<h4>Promo: {{ post.promocao }} €</h4>
+								{% else %}
+									<h4>Preço: {{ post.price }} €</h4>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+
+			</div>
+			<br>
+		</div>
+
+	</div>
+
+
+{% endblock %}
+
+{% block paginacao %}
+<div class="container">
+    <div class="row">
+        {% include 'parciais/_pagination.html' %}
+    </div>
+</div>
+<br>
+{% endblock %}

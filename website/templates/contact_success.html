@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block navbar %}
+    <li><a class="nav-link active" href="{% url 'post_list' %}">Home</a></li>
+{% endblock %}
+
+
+{% block cabecalho %}
+    <div class="lbox-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <span>Obrigado {{ name }}</span>
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    </h1>
+                    <h1>Entraremos em contato o mais brevemente possível</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

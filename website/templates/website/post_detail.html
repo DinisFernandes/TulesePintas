@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{object.title}}</title>
+{% endblock %}
+
+
+
+{% block navbar %}
+    <li><a class="nav-link active" href="{% url 'post_list' %}">Home</a></li>
+	<li><a class="nav-link" href="#contact">Contatos</a></li>
+{% endblock %}
+
+{% block cabecalho %}
+    	<div id="about" class="about-box">
+		<div class="about-a1">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="row align-items-center about-main-info">
+							<div class="col-lg-4 col-md-6 col-sm-12">
+								<div class="about-m">
+									<div class="about-img">
+                                        {% if post.imagem_post %}
+                                            <img class="img-fluid" src="{{ post.imagem_post.url }}" alt="" />
+                                        {% else %}
+                                            <img class="img-fluid" src="{% static 'images/logotulespintas.jpg' %}" alt="" />
+                                        {% endif %}
+									</div>
+									<ul>
+										<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}&t={{ post.title }}"><i class="fa fa-facebook"></i></a></li>
+<!--										<li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-8 col-md-6 col-sm-12">
+								<br>
+								<h2> <i class="fa fa-heart-o" aria-hidden="true"></i> <span>{{object.title}}</span> <i class="fa fa-heart-o" aria-hidden="true"></i></h2>
+                                {% if post.promocao > 0 %}
+									<h4>Preço: <del>{{ post.price }} €</del></h4>
+									<h4>Promo: {{ post.promocao }} €</h4>
+								{% else %}
+									<h4>Preço: {{ post.price }} €</h4>
+								{% endif %}
+									<hr>
+									<div class="container">
+										<table style="width:50%">
+											<tr>
+												<th>Tamanho</th>
+												<th>Stock</th>
+											</tr>
+											<tr>
+												<td>Bebé</td>
+												<td>{{post.stock_bebe}}</td>
+											</tr>
+											<tr>
+												<td>Criança</td>
+												<td>{{post.stock_crianca}}</td>
+											</tr>
+											<tr>
+												<td>Junior</td>
+												<td>{{post.stock_junior}}</td>
+											</tr>
+											<td></td>
+										</table>
+
+									<hr>
+                                	{{object.content|safe}}
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+                <div id="events" class="events-box">
+                    <div class="container">
+                        <div class="row">
+                            {% for pic in todos %}
+                            {% if pic.galeria %}
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+								<ul class="popup-gallery clearfix">
+									<div class="event-inner">
+										<div class="event-img">
+											<a href="{{ pic.galeria.url }}">
+												<img class="img-fluid" src="{{ pic.galeria.url }}" alt="">
+											</a>
+										</div>
+									</div>
+								</ul>
+                            </div>
+                            {% else %}
+                            {% endif %}
+                            {%  endfor %}
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block contactos %}
+	<div id="contact" class="contact-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-box">
+						<h2>Contate-nos</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col-lg-12 col-sm-12 col-xs-12">
+
+
+				  <div class="contact-block">
+					<form method="post" action="{% url 'save_form' post.id %}">
+						{% csrf_token %}
+					  <div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="text" class="form-control" id="name" name="name" placeholder="Seu Nome" required data-error="Digite o seu nome">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+					    <div class="col-md-12">
+							<div class="form-group">
+								<input type="text" class="form-control" id="telm" name="telm" placeholder="Seu Número" required data-error="Digite o seu número">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="text" placeholder="Seu e-mail" id="email" class="form-control" name="email" required data-error="Digite o seu e-mail">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<textarea class="form-control" id="message" name="message" placeholder="Sua Mensagem" rows="8" data-error="Digite uma mensagem	" required></textarea>
+								<div class="help-block with-errors"></div>
+							</div>
+							<div class="submit-button text-center">
+								<button class="btn btn-common" id="submit" type="submit">Enviar</button>
+								<div id="msgSubmit" class="h3 text-center hidden"></div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					  </div>
+					</form>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
