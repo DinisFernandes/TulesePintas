@@ -5,6 +5,11 @@
 <title>Tules e Pintas</title>
 {% endblock %}
 
+{% block metafacebook %}
+    <meta property="og:image" content="{% static 'images/logotulespintas.jpg' %}">
+{% endblock %}
+
+
 
 {% block navbar %}
     <li><a class="nav-link active" href="#home">Home</a></li>
@@ -58,7 +63,7 @@
 										<img class="img-fluid" src="{% static 'images/logotulespintas.jpg' %}" alt="" />
 									</div>
 									<ul>
-										<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}&t={{ post.title }}"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}&t={{ post.title }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
 <!--										<li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
 <!--										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
 									</ul>
