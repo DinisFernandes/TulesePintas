@@ -5,6 +5,10 @@
 <title>{{object.title}}</title>
 {% endblock %}
 
+{% block metafacebook %}
+    <meta property="og:image" content="{{ post.imagem_post.url }}">
+{% endblock %}
+
 
 
 {% block navbar %}
