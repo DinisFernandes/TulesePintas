@@ -18,7 +18,8 @@ class PostAdmin(SummernoteModelAdmin):
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('id','name','tratado', 'data_contact')
+    list_display = ('id','name', 'artigo', 'tratado', 'data_contact')
+    list_editable = ['tratado',]
 
 
 admin.site.register(Post, PostAdmin)

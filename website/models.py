@@ -20,7 +20,7 @@ class Post(models.Model):
                                  default= Categorias.menino,)
     content = models.TextField(verbose_name='Descricao')
     data_post = models.DateTimeField(default=timezone.now, verbose_name='Data')
-    imagem_post = models.ImageField(upload_to='post_img/%Y/%m/%d', blank=True, null=True, verbose_name='Imagem De Perfil')
+    imagem_post = models.ImageField(upload_to='post_img/%Y/%m/%d', verbose_name='Imagem De Perfil')
     price = models.DecimalField(max_digits=6,  decimal_places=2, blank=True, null=True, verbose_name='Preco')
     promocao = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True, verbose_name='Promocao')
     stock_bebe = models.IntegerField(validators=[MinValueValidator(0)], blank=True, null=True, verbose_name='Stock Bebé')
