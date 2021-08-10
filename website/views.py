@@ -20,8 +20,8 @@ class PostList(ListView):
             'promo': Post.objects.all().order_by('-promocao')[:4],
             'items_promo': Post.objects.filter(promocao__gt=0).count(),
             #ordenar por soma das vendas
-            'vendas': Post.objects.annotate(fieldsum = F('vendas_bebe')
-                                                     +F('vendas_crianca') + F('vendas_junior')).order_by('-fieldsum')[:4],
+            'vendas': Post.objects.annotate(fieldsum = F('vendas_3_meses')
+                                                     +F('vendas_6_meses') + F('vendas_9_meses')).order_by('-fieldsum')[:4],
             'todos': Post.objects.all().order_by('-data_post')[:4],
         })
         return context
@@ -108,6 +108,6 @@ class BestSalesList(PostList):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        qs = qs.annotate(fieldsum = F('vendas_bebe')
-                                                     +F('vendas_crianca') + F('vendas_junior')).order_by('-fieldsum')
+        qs = qs.annotate(fieldsum = F('vendas_3_meses')
+                                                     +F('vendas_6_meses') + F('vendas_9_meses')).order_by('-fieldsum')
         return qs

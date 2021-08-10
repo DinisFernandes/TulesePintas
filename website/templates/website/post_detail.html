@@ -50,26 +50,115 @@
 								{% endif %}
 									<hr>
 									<div class="container">
-										<table style="width:50%">
-											<tr>
-												<th>Tamanho</th>
-												<th>Stock</th>
-											</tr>
-											<tr>
-												<td>Bebé</td>
-												<td>{{post.stock_bebe}}</td>
-											</tr>
-											<tr>
-												<td>Criança</td>
-												<td>{{post.stock_crianca}}</td>
-											</tr>
-											<tr>
-												<td>Junior</td>
-												<td>{{post.stock_junior}}</td>
-											</tr>
-											<td></td>
-										</table>
-
+										{% if post.tamanho == "Polonia" %}
+											<table style="width:100%">
+												<tr>
+													<th>Tamanho</th>
+													<th>Stock</th>
+													<th>Tamanho</th>
+													<th>Stock</th>
+												</tr>
+												<tr>
+													<td>3 meses (62cm)</td>
+													<td>{{post.stock_3_meses}}</td>
+													<td>6 anos (116cm)</td>
+													<td>{{post.stock_6_anos}}</td>
+												</tr>
+												<tr>
+													<td>6 meses (68cm)</td>
+													<td>{{post.stock_6_meses}}</td>
+													<td>7 anos (122cm)</td>
+													<td>{{post.stock_7_anos}}</td>
+												</tr>
+												<tr>
+													<td>9 meses (74cm)</td>
+													<td>{{post.stock_9_meses}}</td>
+													<td>8 anos (128cm)</td>
+													<td>{{post.stock_8_anos}}</td>
+												</tr>
+												<tr>
+													<td>12 meses (80cm)</td>
+													<td>{{post.stock_12_meses}}</td>
+													<td>9 anos (134cm)</td>
+													<td>{{post.stock_9_anos}}</td>
+												</tr>
+												<tr>
+													<td>18 meses (86cm)</td>
+													<td>{{post.stock_18_meses}}</td>
+													<td>10 anos (140cm)</td>
+													<td>{{post.stock_10_anos}}</td>
+												</tr>
+												<tr>
+													<td>2 anos (92cm)</td>
+													<td>{{post.stock_2_anos}}</td>
+													<td>11 anos (146cm)</td>
+													<td>{{post.stock_11_anos}}</td>
+												</tr>
+												<tr>
+													<td>3 anos (98cm)</td>
+													<td>{{post.stock_3_anos}}</td>
+													<td>12 anos (152cm)</td>
+													<td>{{post.stock_12_anos}}</td>
+												</tr>
+												<tr>
+													<td>4 anos (104cm)</td>
+													<td>{{post.stock_4_anos}}</td>
+													<td>13 anos (158cm)</td>
+													<td>{{post.stock_13_anos}}</td>
+												</tr>
+												<tr>
+													<td>5 anos (110cm)</td>
+													<td>{{post.stock_5_anos}}</td>
+													<td>14 anos (164cm)</td>
+													<td>{{post.stock_14_anos}}</td>
+												</tr>
+												<td></td>
+											</table>
+										{% else %}
+											<table style="width:50%">
+												<tr>
+													<th>Tamanho</th>
+													<th>Stock</th>
+												</tr>
+												<tr>
+													<td>2/3 anos (90cm)</td>
+													<td>{{post.stock_2_3_anos}}</td>
+												</tr>
+												<tr>
+													<td>3/4 anos (100cm)</td>
+													<td>{{post.stock_3_4_anos}}</td>
+												</tr>
+												<tr>
+													<td>4/5 anos (110cm)</td>
+													<td>{{post.stock_4_5_anos}}</td>
+												</tr>
+												<tr>
+													<td>5/6 anos (120cm)</td>
+													<td>{{post.stock_5_6_anos}}</td>
+												</tr>
+												<tr>
+													<td>6/7 anos (130cm)</td>
+													<td>{{post.stock_6_7_anos}}</td>
+												</tr>
+												<tr>
+													<td>7/8 anos (140cm)</td>
+													<td>{{post.stock_7_8_anos}}</td>
+												</tr>
+												<tr>
+													<td>8/9 anos (150cm)</td>
+													<td>{{post.stock_8_9_anos}}</td>
+												</tr>
+												<tr>
+													<td>9/10 anos (160cm)</td>
+													<td>{{post.stock_9_10_anos}}</td>
+												</tr>
+												<tr>
+													<td>10/11 anos (170cm)</td>
+													<td>{{post.stock_10_11_anos}}</td>
+												</tr>
+												<td></td>
+											</table>
+										{% endif %}
 									<hr>
                                 	{{object.content|safe}}
 									</div>
