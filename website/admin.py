@@ -34,7 +34,8 @@ class PostAdmin(SummernoteModelAdmin):
                        ('vendido_10_anos', 'stock_10_anos', 'vendas_10_anos'),
                        ('vendido_11_anos', 'stock_11_anos', 'vendas_11_anos'),
                        ('vendido_12_anos', 'stock_12_anos', 'vendas_12_anos'),
-                       ('vendido_13_anos', 'stock_13_anos', 'vendas_13_anos'),),
+                       ('vendido_13_anos', 'stock_13_anos', 'vendas_13_anos'),
+                       ('vendido_14_anos', 'stock_14_anos', 'vendas_14_anos'),),
         }),
 
         ('Tamanhos China', {
