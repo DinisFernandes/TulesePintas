@@ -8,6 +8,7 @@ class PhotosInline(admin.StackedInline):
     model = GaleriaPhotos
     extra = 1
 
+
 class PostAdmin(SummernoteModelAdmin):
     list_display = ('id','title', 'price', 'promocao','data_post',)
     list_display_links = ('id', 'title')
