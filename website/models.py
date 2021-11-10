@@ -256,13 +256,10 @@ class GaleriaPhotos(models.Model):
         width, height = img.size
 
         if width <= new_width:
-<<<<<<< HEAD
             img.close()
             return
-=======
              img.close()
              return
->>>>>>> 5dddaa4777df3967795bc36d6f97dfd262c921b4
 
         new_height = round(new_width * height / width)
         new_img = img.resize((new_width, new_height), Image.ANTIALIAS)
