@@ -57,6 +57,7 @@ class PostAdmin(SummernoteModelAdmin):
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('id','name', 'artigo', 'tratado', 'data_contact')
+    list_display_links = ('id', 'name')
     list_editable = ['tratado',]
 
 

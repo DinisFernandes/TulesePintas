@@ -84,9 +84,11 @@ class PromoList(PostList):
     # model = Post
     paginate_by = 20
 
-    def get_queryset(self):
-        qs = super().get_queryset()
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)
+        # self.request.session['promocao'] = promocao
         qs = qs.filter(promocao__gt=1).order_by('-promocao')
+        # self.request.session.save()
         return qs
 
     def get_context_data(self, **kwargs):
