@@ -10,11 +10,13 @@ import os
 class Categorias(models.TextChoices):
     menino = 'Menino', 'Menino'
     menina = 'Menina', 'Menina'
+    ambos = 'Ambos', 'Ambos'
 
 
 class Tamanhos(models.TextChoices):
     china = 'China', 'China'
     polonia = 'polonia', 'Polonia'
+    outros = 'Outros', 'Outros'
 
 
 class Post(models.Model):

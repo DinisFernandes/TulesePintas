@@ -114,7 +114,8 @@
 												</tr>
 												<td></td>
 											</table>
-										{% else %}
+										<hr>
+										{% elif post.tamanho == "China" %}
 											<table style="width:50%">
 												<tr>
 													<th>Tamanho</th>
@@ -158,8 +159,9 @@
 												</tr>
 												<td></td>
 											</table>
+										<hr>
 										{% endif %}
-									<hr>
+
                                 	{{object.content|safe}}
 									</div>
 							</div>
